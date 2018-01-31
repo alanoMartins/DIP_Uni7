@@ -4,7 +4,9 @@ import cv2
 cap = cv2.VideoCapture(0)
 
 def my_filter(image):
-    kernel = np.array([[1,1,1], [1,1,1], [1,1,1]])
+    #kernel = np.array([[1, 1, 1], [1, 1, 1], [1, 1, 1]])
+    #kernel = np.array([[-.5, -.5, -.5], [1, 1, 1], [-.5, -.5, -.5]])
+    kernel = np.array([[-.5, 1, -.5], [-.5, 1, -.5], [-.5, 1, -.5]])
     return cv2.filter2D(image, cv2.CV_8U, kernel)
 
 while(True):
@@ -31,11 +33,11 @@ while(True):
 
 
     # Display the resulting frame
-    cv2.imshow('frame',gray)
-    cv2.imshow('sorbelX', sorbelX)
-    cv2.imshow('sorbelY', sorbelY)
-    cv2.imshow('ScharrX', scharrX)
-    cv2.imshow('ScharrY', scharrY)
+    # cv2.imshow('frame',gray)
+    # cv2.imshow('sorbelX', sorbelX)
+    # cv2.imshow('sorbelY', sorbelY)
+    # cv2.imshow('ScharrX', scharrX)
+    # cv2.imshow('ScharrY', scharrY)
 
     cv2.imshow('myfilter', myfilter)
 
